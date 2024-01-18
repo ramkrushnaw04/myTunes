@@ -511,7 +511,7 @@ async function appendPlaylists(playlists) {
 
             const playlistName = song.getElementsByTagName('h4')[0].innerHTML
 
-            let path = 'http://127.0.0.1:5500/playlists/' + playlistName + '/'
+            let path = '/playlists/' + playlistName + '/'
             songs = await getSongs(path)
             appendSongs(path, songs)
 
@@ -755,7 +755,7 @@ async function main() {
     // playBar(songs)
     // songs = await getSongs(songsPath)
 
-    // songs = await getSongs('http://127.0.0.1:5500/playlists/KRSNA/')
+    // songs = await getSongs('/playlists/KRSNA/')
     // maxCurrSongInd = songs.length
     // console.log('songs', songs)
 
