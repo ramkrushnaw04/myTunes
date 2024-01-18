@@ -1,5 +1,5 @@
-let songsPath = 'http://127.0.0.1:5500/songs/'
-const playlistsPath = 'http://127.0.0.1:5500/playlists/'
+let songsPath = '/songs/'
+const playlistsPath = '/playlists/'
 const player = new Audio()
 let songs
 let currSongInd = 0
