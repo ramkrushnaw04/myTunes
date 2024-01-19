@@ -1,5 +1,5 @@
-let songsPath = '/songs/'
-const playlistsPath = '/playlists/'
+let songsPath = 'http://127.0.0.1:5500/songs/'
+const playlistsPath = 'http://127.0.0.1:5500/playlists/'
 const player = new Audio()
 let songs
 let currSongInd = 0
@@ -130,7 +130,7 @@ async function playSong(url) {
     document.getElementById('songName').innerHTML = url.split('/')[k - 1].replaceAll('%20', ' ').replace('.mp3', '')
 
     try {
-        const lyrics = await getLyrics(url.replaceAll(' ', '%20'))
+        const lyrics = await getLyrics(url)
         document.querySelector('.lyrics').getElementsByTagName('p')[0].innerHTML = lyrics
     }
     catch { }
@@ -178,7 +178,7 @@ function appendSongs(path, songs) {
 
         // applying active color to first song
         if(previousSong == null) {
-
+            console.log(ele)
             ele.style.backgroundColor = activeColor
             previousSong = ele
             // currSongInd = songs.indexOf(song)
@@ -189,6 +189,7 @@ function appendSongs(path, songs) {
             // reset color of previous song
             if(previousSong != null)
                 previousSong.removeAttribute('style')
+
 
 
             // set new color to current song
@@ -474,8 +475,7 @@ async function appendPlaylists(playlists) {
 
         cont.innerHTML +=
             `<div class="songCard">
-                <img class="songCardThumbnail" src="${thumbnail}" alt="Image">
-                <img class="songCardPopUp" src="Assets/one.svg" alt="" >
+                <img src="${thumbnail}" alt="Image">
                 <h4>${title}</h4>
                 <p>${k.length + ' Records'}</p>
             </div>`;
@@ -511,7 +511,7 @@ async function appendPlaylists(playlists) {
 
             const playlistName = song.getElementsByTagName('h4')[0].innerHTML
 
-            let path = '/playlists/' + playlistName + '/'
+            let path = 'http://127.0.0.1:5500/playlists/' + playlistName + '/'
             songs = await getSongs(path)
             appendSongs(path, songs)
 
@@ -549,22 +549,12 @@ async function appendPlaylists(playlists) {
             bPlayer.classList.toggle('bigPlayer-expanded')
             document.querySelector('.expandBigPlayer').classList.toggle('expandBigPlayer-rotated')
             document.querySelector('.yourLibrary').getElementsByTagName('span')[0].innerHTML = playlistName
+
+
+
         })
-
-
-        // the hovering play button that appears when hovered above soundCard
-
-        let icon = song.querySelector('.songCardPopUp')
-        song.addEventListener('mouseenter', ()=>{
-            icon.classList.add('songCardPopUpActive')
-        })
-        song.addEventListener('mouseleave', ()=>{
-            icon.classList.remove('songCardPopUpActive')
-        })
-
-
-
     }
+
 
 }
 
@@ -755,7 +745,7 @@ async function main() {
     // playBar(songs)
     // songs = await getSongs(songsPath)
 
-    // songs = await getSongs('/playlists/KRSNA/')
+    // songs = await getSongs('http://127.0.0.1:5500/playlists/KRSNA/')
     // maxCurrSongInd = songs.length
     // console.log('songs', songs)
 
