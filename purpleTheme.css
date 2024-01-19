@@ -1,0 +1,52 @@
+.right .top{
+    /* background-color: #5773ff; */
+    /* background-color: #2e3247; */
+    /* background-color: #1a203f; */
+    background-color: #1b1d27;
+}
+.right .musicPlayer{
+    /* background-color: #5773ff; */
+    /* background-color: #2e3247; */
+    /* background-color: #1a203f; */
+    background-color: #1b1d27;
+}
+
+.loginButtons li button {
+    background-color: white;
+}
+
+.loginButtons :first-child button {
+    color: white;
+}
+
+
+.soundBarComplitionBar{
+    background-color: #394105;
+}
+
+.playlists .songCard{
+    background-color: #222532;
+    background-color: #12131a;
+}
+
+.right .playlists{
+    background-color: black;
+}
+
+.loginButtons :first-child button{
+    background-color: rgb(79 29 29);
+    color: #a0a0a0;
+}
+
+.loginButtons li button{
+    background-color: #869197;
+}
+
+.complitionBar{
+    background-color: #412b4c;
+    /* background-color: rgb(79 29 29); */
+}
+
+.logo{
+    color: #37a1b1;
+}
